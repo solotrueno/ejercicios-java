@@ -1,0 +1,88 @@
+import java.util.Scanner;
+
+public class ejercicio2 {
+    public static void main(String[] args) {
+        // Mensaje de bienvenida
+        System.out.println("Bienvenido a Lavadoras Domi, ¿cómo podemos ayudarte el día de hoy?");
+
+        Scanner sc = new Scanner(System.in);
+
+        // Menú principal: tipo de lavadora
+        System.out.println("Menú");
+        System.out.println("1) Lavadora estándar");
+        System.out.println("2) Lavadora grande");
+        System.out.println("3) Lavadora industrial");
+        System.out.println("________________________________");
+        System.out.print("Elige una opción: ");
+
+        int opcion = sc.nextInt();
+
+        String tipoLavadora = "";
+        int precioPorHora = 0;
+
+        // Evaluamos tipo de lavadora
+        switch (opcion) {
+            case 1:
+                tipoLavadora = "Lavadora estándar";
+                System.out.println("Has seleccionado Lavadora estándar");
+                break;
+            case 2:
+                tipoLavadora = "Lavadora grande";
+                System.out.println("Has seleccionado Lavadora grande");
+                break;
+            case 3:
+                tipoLavadora = "Lavadora industrial";
+                System.out.println("Has seleccionado Lavadora industrial");
+                break;
+            default:
+                System.out.println("Opción no válida");
+                sc.close();
+                return;
+        }
+
+        System.out.println("________________________________");
+
+        // Pedimos cuántas horas
+        System.out.print("¿Cuántas horas deseas alquilarla desde 5 hasta 48 horas");
+        int horas = sc.nextInt();
+
+        if (horas <= 0) {
+            System.out.println("La cantidad de horas debe ser mayor a 0.");
+            sc.close();
+            return;
+        }
+
+        // Calculamos el precio por hora según tipo y horas (usando IF)
+        if (tipoLavadora.equals("Lavadora estándar")) {
+            if (horas <= 3) {
+                precioPorHora = 5000;
+            } else {
+                precioPorHora = 4000;
+            }
+        } else if (tipoLavadora.equals("Lavadora grande")) {
+            if (horas <= 3) {
+                precioPorHora = 7000;
+            } else {
+                precioPorHora = 6000;
+            }
+        } else if (tipoLavadora.equals("Lavadora industrial")) {
+            if (horas <= 3) {
+                precioPorHora = 10000;
+            } else {
+                precioPorHora = 8000;
+            }
+        }
+
+        int precioTotal = precioPorHora * horas;
+
+        System.out.println("______________________________");
+        System.out.println("Resumen de tu alquiler:");
+        System.out.println("Tipo de lavadora: " + tipoLavadora);
+        System.out.println("Horas de alquiler: " + horas);
+        System.out.println("Precio por hora: $" + precioPorHora);
+        System.out.println("Precio total a pagar: $" + precioTotal);
+        System.out.println("Gracias por usar Lavadoras Domi. ¡Procesaremos tu solicitud!");
+
+        sc.close();
+    }
+}

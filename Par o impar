@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class ParImpar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa un número entero: ");
+        int n = scanner.nextInt();   // leemos el número como entero
+
+        if (n % 2 == 0) {            // usamos el módulo %
+            System.out.println("El número es PAR.");
+        } else {
+            System.out.println("El número es IMPAR.");
+        }
+
+        scanner.close();
+    }
+}
